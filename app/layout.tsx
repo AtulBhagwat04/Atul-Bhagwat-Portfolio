@@ -5,8 +5,8 @@ import SmoothScroll from "@/components/ui/SmoothScroll";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://atulbhagwat.dev"),
-  title: "Atul Bhagwat | Senior Mobile App Developer & Flutter Expert",
-  description: "Award-winning portfolio of Atul Bhagwat - Senior Mobile App Developer, Flutter Expert & Full Stack Engineer specializing in high-performance iOS, Android, and cross-platform applications.",
+  title: "Atul Bhagwat | Mobile App Developer & Flutter Expert",
+  description: "Atul Bhagwat - Mobile App Developer, Flutter Expert & Full Stack Engineer specializing in high-performance iOS, Android, and cross-platform applications.",
   keywords: [
     "Flutter Expert",
     "Mobile App Developer",
@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     "Full Stack Developer",
     "Node.js",
     "Atul Bhagwat",
-    "React Native",
+    "Flutter App Developer",
     "Portfolio"
   ],
   authors: [{ name: "Atul Bhagwat" }],
   creator: "Atul Bhagwat",
   openGraph: {
-    title: "Atul Bhagwat | Senior Mobile App Developer",
-    description: "Building Mobile Apps That People Love And Businesses Trust.",
+    title: "Atul Bhagwat | Mobile App Developer",
+    description: "Atul Bhagwat - Mobile App Developer & Flutter Developer specializing in high-performance iOS, Android, and cross-platform applications.",
     url: "https://atulbhagwat.dev",
     siteName: "Atul Bhagwat Portfolio",
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     images: ["/images/developer_hero.png"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg",
   },
 };
 
