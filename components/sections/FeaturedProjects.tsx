@@ -9,31 +9,43 @@ import ProjectModal, { ProjectData } from "@/components/ui/ProjectModal";
 const projectsData: ProjectData[] = [
   {
     id: "yatrikaa",
-    title: "Yatrikaa – Travel Companion App",
+    title: "Yatrikaa – Travel Guide App",
     category: "Travel & Tourism",
-    description: "Full-stack travel platform for destination discovery, trip planning, bookings, and community interactions.",
+    description: "A modern travel guide application that helps users discover, plan, and explore destinations with ease.",
     longDescription:
-      "Yatrikaa is a comprehensive full-stack travel platform built with Flutter and a Node.js/Express backend. It integrates Google Places and OpenTripMap APIs to deliver real-time location-based travel recommendations, offline maps, and itinerary planning.",
+      "Yatrikaa is a comprehensive full-stack travel guide app built with Flutter and a Node.js/Express backend. It integrates Google Maps and device location services to help users discover nearby attractions, hotels, and restaurants in real time. MongoDB Atlas securely stores user accounts and custom trip planners, while Cloudinary delivers optimized images for maximum performance.",
     image: "/images/projects/travel_app.png",
-    tech: ["Flutter", "Dart", "BLoC", "Node.js", "Express.js", "MongoDB", "Firebase Auth", "JWT", "Google Places API", "OpenTripMap API"],
+    gallery: [
+      "/images/projects/travel_app.png",
+      "/images/projects/weather_app.png",
+      "/images/projects/food_delivery.png",
+      "/images/projects/chat_app.png",
+      "/images/projects/expense_tracker.png",
+      "/images/projects/fittrack.png"
+    ],
+    tech: ["Flutter", "Dart", "Node.js", "Express.js", "MongoDB Atlas", "BLoC", "JWT Auth", "Cloudinary", "Google Maps API", "REST API", "Client-Server"],
     features: [
-      "Real-time location recommendations with Google Places & OpenTripMap APIs",
-      "Secure REST APIs with Firebase Auth, JWT, and role-based access control",
-      "Offline destination discovery and custom multi-stop trip routing",
-      "Image uploads, notification systems, and local offline state management",
+      "Discover Destinations: Explore historical, religious, nature, and heritage places with detailed timings and travel tips",
+      "Smart Search: Instantly search destinations by name or category with a simple, intuitive user experience",
+      "Nearby Attractions: Find nearby tourist spots, hotels, restaurants, cafés, hospitals, and fuel stations",
+      "Google Maps Navigation: Get live directions, calculate travel distance, and navigate directly to your destinations",
+      "Favorites Folder: Save your favorite locations and access them anytime from your custom profile view",
+      "Trip Planner: Create and manage personalized travel itineraries for your upcoming trips",
+      "Cloud-Based Backend: Securely stores user accounts, favorites, and trip information using MongoDB Atlas",
+      "Modern UI Experience: Designed with Flutter and Material Design for a fast, responsive, and fluid interface",
     ],
     architecture: [
-      "BLoC State Management for predictable unidirectional UI state flows",
-      "Clean Architecture divided into Data, Domain, and Presentation layers",
-      "Robust Express backend using MongoDB for user profiles and travel logs",
-      "Secure API gateways with JSON Web Tokens (JWT) for private route access",
+      "Location-Based Discovery: Uses Google Maps and device location services to discover nearby attractions in real time",
+      "Full-Stack Cloud Architecture: Communicates with a Node.js REST API while MongoDB Atlas securely stores all data logs",
+      "Future Improvements: AI-based travel recommendations, live weather updates, offline maps, and travel expense tracking",
+      "Folder Structure: Follows core/bloc, model, and service patterns to separate data models from UI views",
     ],
     stats: [
       { label: "Status", value: "Production-Ready" },
-      { label: "APIs Integrated", value: "5+" },
+      { label: "APIs Integrated", value: "5+ Cloud APIs" },
     ],
-    githubUrl: "https://github.com/AtulBhagwat04/Yatrikaa",
-    demoUrl: "https://github.com/AtulBhagwat04/Yatrikaa",
+    githubUrl: "https://github.com/AtulBhagwat04/yatrikaa.git",
+    demoUrl: "https://github.com/AtulBhagwat04/yatrikaa.git",
   },
   {
     id: "guruconnect",
@@ -43,6 +55,14 @@ const projectsData: ProjectData[] = [
     longDescription:
       "GuruConnect is a smart mentor-booking web/mobile ecosystem. It manages mentor verification workflows, secure Razorpay booking checkouts, and utilizes the Zoom API to dynamically provision audio/video slots for student-mentor consultations.",
     image: "/images/projects/expense_tracker.png",
+    gallery: [
+      "/images/projects/expense_tracker.png",
+      "/images/projects/chat_app.png",
+      "/images/projects/fittrack.png",
+      "/images/projects/travel_app.png",
+      "/images/projects/weather_app.png",
+      "/images/projects/food_delivery.png"
+    ],
     tech: ["Node.js", "Express.js", "MongoDB", "Razorpay API", "Zoom API", "JWT Auth", "REST API Design"],
     features: [
       "Dynamic session booking with automated Razorpay checkout verification",
@@ -79,14 +99,14 @@ export default function FeaturedProjects() {
   return (
     <section id="projects" className="py-24 relative bg-bg-secondary/40">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-8">
-        
+
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-3 mb-12">
           <span className="px-4 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary text-xs font-bold uppercase tracking-wider">
             Portfolio Showcase
           </span>
           <h2 className="font-heading section-title font-extrabold text-white">
-            Featured <span className="text-accent-gradient">Mobile Applications</span>
+            Featured <span className="text-accent-gradient">Projects  </span>
           </h2>
           <p className="text-text-body text-base max-w-2xl">
             Explore production-grade iOS and Android mobile apps engineered with Flutter, clean architecture, and modern backend integrations.
@@ -99,11 +119,10 @@ export default function FeaturedProjects() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-                activeCategory === cat
-                  ? "bg-accent-primary text-bg-primary font-bold shadow-glow"
-                  : "bg-bg-card border border-white/10 text-text-body hover:text-white hover:border-accent-primary/40"
-              }`}
+              className={`px-5 py-2 rounded-full text-xs font-medium transition-all duration-300 ${activeCategory === cat
+                ? "bg-accent-primary text-bg-primary font-bold shadow-glow"
+                : "bg-bg-card border border-white/10 text-text-body hover:text-white hover:border-accent-primary/40"
+                }`}
             >
               {cat}
             </button>
