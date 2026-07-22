@@ -14,14 +14,22 @@ const projectsData: ProjectData[] = [
     description: "A modern travel guide application that helps users discover, plan, and explore destinations with ease.",
     longDescription:
       "Yatrikaa is a comprehensive full-stack travel guide app built with Flutter and a Node.js/Express backend. It integrates Google Maps and device location services to help users discover nearby attractions, hotels, and restaurants in real time. MongoDB Atlas securely stores user accounts and custom trip planners, while Cloudinary delivers optimized images for maximum performance.",
-    image: "/images/projects/travel_app.png",
+    image: "/images/projects/Yatrikaa Images/travel_app.png",
     gallery: [
-      "/images/projects/travel_app.png",
-      "/images/projects/weather_app.png",
-      "/images/projects/food_delivery.png",
-      "/images/projects/chat_app.png",
-      "/images/projects/expense_tracker.png",
-      "/images/projects/fittrack.png"
+      "/images/projects/Yatrikaa Images/splash.jpg",
+      "/images/projects/Yatrikaa Images/onboarding1.jpg",
+      "/images/projects/Yatrikaa Images/onboarding2.jpg",
+      "/images/projects/Yatrikaa Images/onboarding3.jpg",
+      "/images/projects/Yatrikaa Images/login.jpg",
+      "/images/projects/Yatrikaa Images/signUp.jpg",
+      "/images/projects/Yatrikaa Images/home1.png",
+      "/images/projects/Yatrikaa Images/home1.png",
+      "/images/projects/Yatrikaa Images/explore.jpg",
+      "/images/projects/Yatrikaa Images/community.jpg",
+      "/images/projects/Yatrikaa Images/packages screen.jpg",
+      "/images/projects/Yatrikaa Images/packageDetails.jpg",
+      "/images/projects/Yatrikaa Images/feature destinations.jpg",
+      "/images/projects/Yatrikaa Images/my profile.jpg"
     ],
     tech: ["Flutter", "Dart", "Node.js", "Express.js", "MongoDB Atlas", "BLoC", "JWT Auth", "Cloudinary", "Google Maps API", "REST API", "Client-Server"],
     features: [
@@ -48,44 +56,56 @@ const projectsData: ProjectData[] = [
     demoUrl: "https://github.com/AtulBhagwat04/yatrikaa.git",
   },
   {
-    id: "guruconnect",
-    title: "GuruConnect – Smart Mentorship Platform",
-    category: "Education & Mentorship",
-    description: "Smart mentorship booking platform enabling session scheduling, Razorpay payments, and Zoom integration.",
+    id: "qlix",
+    title: "Qlix – Live Interactive Learning Platform",
+    category: "Education & Productivity",
+    description:
+      "Qlix is a modern live interactive learning platform that enables educators, trainers, and organizations to create, manage, and conduct engaging real-time sessions with quizzes, polls, Q&A, analytics, and participant management—all from a single platform.",
     longDescription:
-      "GuruConnect is a smart mentor-booking web/mobile ecosystem. It manages mentor verification workflows, secure Razorpay booking checkouts, and utilizes the Zoom API to dynamically provision audio/video slots for student-mentor consultations.",
-    image: "/images/projects/expense_tracker.png",
+      "Qlix is a scalable full-stack audience engagement platform designed for colleges, coaching institutes, corporate training, workshops, webinars, and conferences. It enables instructors to host live sessions while participants join instantly using a unique session code. The platform supports real-time quizzes, polls, Q&A, attendance tracking, live analytics, participant management, and session history. Built with Flutter and a Node.js backend, Qlix delivers a smooth cross-platform experience with secure authentication and cloud-powered infrastructure.",
+    image: "/images/projects/Qlix Images/thumbnail.png",
     gallery: [
-      "/images/projects/expense_tracker.png",
-      "/images/projects/chat_app.png",
-      "/images/projects/fittrack.png",
-      "/images/projects/travel_app.png",
-      "/images/projects/weather_app.png",
-      "/images/projects/food_delivery.png"
+      "/images/projects/Qlix Images/thumbnail.png"
     ],
-    tech: ["Node.js", "Express.js", "MongoDB", "Razorpay API", "Zoom API", "JWT Auth", "REST API Design"],
+    tech: [
+      "Flutter",
+      "Dart",
+      "BLoC",
+      "Node.js",
+      "Express.js",
+      "MongoDB Atlas",
+      "Mongoose ODM",
+      "Socket.IO",
+      "Firebase Auth",
+      "Firebase FCM",
+      "Cloudinary",
+      "Material 3"
+    ],
     features: [
-      "Dynamic session booking with automated Razorpay checkout verification",
-      "Automatic video conference creation via Google/Zoom API schedules",
-      "Nearby and global mentor discovery algorithms with database search",
-      "Comprehensive mentor verification panel and session log history",
+      "Session Management: Create live sessions, join using session codes, schedule, draft & publish, duplicate, and track session history",
+      "Live Interaction: Conduct live polls, real-time quizzes, Q&A sessions, instant response tracking, live leaderboards, and announcements",
+      "Participant Management: Session code joining, attendance tracking, active user monitoring, participant removal, and access control",
+      "Analytics Dashboard: Monitor total sessions, participant counts, quiz performance, response analytics, and engagement reports",
+      "Notifications & Alerts: Push notifications, session reminders, live interaction alerts, and instant quiz notifications",
+      "Security & Authentication: JWT & Firebase authentication, role-based access control, secure REST APIs, and protected routes",
+      "Modern User Experience: Responsive UI with smooth animations, Material 3 design, light & dark themes, and offline state handling"
     ],
     architecture: [
-      "Express.js routing architecture optimized for high-throughput traffic",
-      "Secure session validation utilizing JSON Web Tokens (JWT) cookies",
-      "Razorpay webhook receivers for verifying successful payments",
-      "Zoom OAuth integrations for server-side virtual room allocation",
+      "Frontend Architecture: Built with Flutter & Dart using BLoC state management, Go Router navigation, and Material 3 design",
+      "Backend API Gateway: High-performance Node.js & Express.js REST API with Socket.IO for real-time bi-directional communication",
+      "Database & Cloud Infrastructure: MongoDB Atlas with Mongoose ODM, Firebase Auth, Firebase Cloud Messaging, and Cloudinary media delivery",
+      "Data Flow Pipeline: Flutter App -> REST API + Socket.IO -> Node.js + Express -> MongoDB Atlas -> Cloudinary + Firebase Services"
     ],
     stats: [
-      { label: "Status", value: "Completed" },
-      { label: "Service Integrations", value: "Razorpay & Zoom" },
+      { label: "Status", value: "Production-Ready" },
+      { label: "Cloud Services", value: "6+ Cloud Services" }
     ],
-    githubUrl: "https://github.com/AtulBhagwat04/GuruConnect",
-    demoUrl: "https://github.com/AtulBhagwat04/GuruConnect",
-  },
+    githubUrl: "https://github.com/AtulBhagwat04/QLix-App",
+    demoUrl: "https://github.com/AtulBhagwat04/QLix-App"
+  }
 ];
 
-const categories = ["All", "Travel & Tourism", "Education & Mentorship"];
+const categories = ["All", "Education & Productivity", "Travel & Tourism"];
 
 export default function FeaturedProjects() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -138,7 +158,8 @@ export default function FeaturedProjects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group glass-card rounded-[24px] overflow-hidden border border-white/10 flex flex-col justify-between hover:border-accent-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow"
+              onClick={() => setSelectedProject(project)}
+              className="group glass-card rounded-[24px] overflow-hidden border border-white/10 flex flex-col justify-between hover:border-accent-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow cursor-pointer"
             >
               {/* Phone Mockup Screen Header */}
               <div className="relative w-full h-[280px] bg-bg-primary overflow-hidden flex items-center justify-center p-4">
@@ -154,16 +175,20 @@ export default function FeaturedProjects() {
                 {/* Hover Overlay Action */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 backdrop-blur-sm">
                   <button
-                    onClick={() => setSelectedProject(project)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedProject(project);
+                    }}
                     className="px-4 py-2 rounded-full bg-accent-primary text-bg-primary text-xs font-bold flex items-center gap-1.5 shadow-glow hover:scale-105 transition-transform"
                   >
                     <Eye className="w-3.5 h-3.5" />
-                    Case Study
+                    View Details
                   </button>
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                     className="p-2.5 rounded-full bg-bg-card border border-white/20 text-white hover:text-accent-primary hover:border-accent-primary transition-all"
                     aria-label="GitHub Repo"
                   >
@@ -209,10 +234,13 @@ export default function FeaturedProjects() {
                   {/* Buttons */}
                   <div className="flex items-center justify-between pt-4 border-t border-white/10">
                     <button
-                      onClick={() => setSelectedProject(project)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedProject(project);
+                      }}
                       className="text-xs font-bold text-accent-primary hover:text-accent-hover flex items-center gap-1 group/btn"
                     >
-                      View Architecture
+                      View Details
                       <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
                     </button>
 
@@ -221,6 +249,7 @@ export default function FeaturedProjects() {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="text-text-muted hover:text-white transition-colors"
                         aria-label="GitHub"
                       >
@@ -230,6 +259,7 @@ export default function FeaturedProjects() {
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="text-text-muted hover:text-accent-primary transition-colors"
                         aria-label="Live Demo"
                       >
