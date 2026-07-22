@@ -101,20 +101,39 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                   {/* Horizontal Scroll Container */}
                   <div className="p-4 rounded-2xl bg-bg-primary/40 border border-white/5 shadow-inner">
-                    <div className="flex gap-4 overflow-x-auto pb-2 pt-1 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
-                      {project.gallery.map((img, index) => (
-                        <div
-                          key={index}
-                          className="relative w-40 aspect-[9/16] rounded-xl overflow-hidden border border-white/10 bg-bg-primary shrink-0 shadow-md group hover:border-accent-primary/40 transition-colors"
-                        >
-                          <Image
-                            src={img}
-                            alt={`${project.title} screenshot ${index + 1}`}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
-                      ))}
+                    <div className="flex gap-4 overflow-x-auto py-1 [&&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                      {project.gallery.map((img, index) => {
+                        const filename = decodeURIComponent(img.split('/').pop()?.split('.')[0] || '');
+                        let label = filename;
+                        if (filename === 'splash') label = 'Splash Screen';
+                        else if (filename === 'onboarding1') label = 'Onboarding';
+                        else if (filename === 'login') label = 'Login';
+                        else if (filename === 'signUp') label = 'Sign Up';
+                        else if (filename === 'home1') label = 'Home Screen';
+                        else if (filename === 'places details') label = 'Places Details';
+                        else if (filename === 'explore') label = 'Explore';
+                        else if (filename === 'community') label = 'Community';
+                        else if (filename === 'packages screen') label = 'Packages';
+                        else if (filename === 'packageDetails') label = 'Package Details';
+                        else if (filename === 'feature destinations') label = 'Featured Destination';
+                        else if (filename === 'my profile') label = 'My Profile';
+
+                        return (
+                          <div key={index} className="flex flex-col items-center shrink-0 group">
+                            <div className="relative w-44 aspect-[9/20] rounded-2xl overflow-hidden border border-white/15 bg-black shadow-md group-hover:border-accent-primary/50 transition-all">
+                              <Image
+                                src={img}
+                                alt={`${project.title} - ${label}`}
+                                fill
+                                className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                              />
+                            </div>
+                            <span className="text-[11px] font-medium text-text-muted group-hover:text-accent-primary text-center mt-2 truncate w-44 transition-colors">
+                              {label}
+                            </span>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

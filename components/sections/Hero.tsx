@@ -52,7 +52,7 @@ export default function Hero() {
 
             {/* Description */}
             <p className="text-text-body text-base md:text-lg max-w-2xl leading-relaxed">
-              Hi, I&apos;m <span className="text-white font-semibold">Atul Bhagwat</span>. Mobile Application Developer specializing in high-performance <span className="text-white font-semibold">Flutter (iOS & Android)</span> apps paired with robust <span className="text-white font-semibold">Node.js</span> backends. Deployed 20+ applications with clean code standards.
+              Hi, I&apos;m <span className="text-white font-semibold">Atul Bhagwat</span>. Mobile Application Developer specializing in high-performance <span className="text-white font-semibold">Flutter (iOS & Android)</span> apps paired with robust <span className="text-white font-semibold">Node.js</span> backends.
             </p>
 
             {/* CTA Buttons */}
