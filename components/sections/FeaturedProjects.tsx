@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, ExternalLink, Eye, Smartphone, Sparkles } from "lucide-react";
+import { Github, ExternalLink, Eye } from "lucide-react";
 import ProjectModal, { ProjectData } from "@/components/ui/ProjectModal";
 
 const projectsData: ProjectData[] = [

@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
-import { Send, Mail, Phone, MapPin, CheckCircle2, Loader2, Sparkles, MessageSquare } from "lucide-react";
+import { Send, Mail, Phone, MapPin, CheckCircle2, Loader2 } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
