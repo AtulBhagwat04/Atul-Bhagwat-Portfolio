@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Briefcase, CheckCircle2, Award, Users } from "lucide-react";
 
 const experiences = [
@@ -75,20 +75,32 @@ export default function Experience() {
             { id: "experience", label: "Experience", icon: <Briefcase className="w-4 h-4" /> },
             { id: "leadership", label: "Leadership", icon: <Users className="w-4 h-4" /> },
             { id: "achievements", label: "Achievements", icon: <Award className="w-4 h-4" /> },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id as any)}
-              className={`px-5 py-2.5 rounded-full text-xs font-semibold flex items-center gap-2 border transition-all duration-300 ${
-                activeTab === tab.id
-                  ? "bg-accent-primary border-accent-primary text-bg-primary font-bold shadow-glow"
-                  : "bg-bg-card border-white/10 text-text-body hover:text-white hover:border-accent-primary/40"
-              }`}
-            >
-              {tab.icon}
-              {tab.label}
-            </button>
-          ))}
+          ].map((tab) => {
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                className={`relative px-5 py-2.5 rounded-full text-xs font-semibold flex items-center gap-2 transition-colors duration-300 ${
+                  isActive
+                    ? "text-bg-primary font-bold"
+                    : "bg-bg-card border border-white/10 text-text-body hover:text-white hover:border-accent-primary/40"
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="experienceTab"
+                    className="absolute inset-0 bg-accent-primary rounded-full shadow-glow"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  {tab.icon}
+                  {tab.label}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {/* List Content */}

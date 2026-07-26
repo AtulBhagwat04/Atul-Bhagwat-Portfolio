@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
-import { Download, Send, Menu, X, Smartphone, Sparkles, Moon, Sun } from "lucide-react";
+import { Download, Send, Menu, X, Smartphone, Sparkles } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -17,7 +17,6 @@ export default function Navbar() {
   const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const { scrollY } = useScroll();
 
@@ -52,10 +51,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
   return (
     <motion.header
       variants={{
@@ -84,7 +79,7 @@ export default function Navbar() {
         </a>
 
         {/* Center Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1 bg-bg-card/60 px-4 py-1.5 rounded-full border border-white/5">
+        <nav className="hidden lg:flex items-center gap-1 bg-bg-card/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/5">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
@@ -98,8 +93,8 @@ export default function Navbar() {
                 {isActive && (
                   <motion.span
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-accent-primary/15 rounded-full border border-accent-primary/30"
-                    transition={{ type: "spring", stiffness: 500, damping: 35 }}
+                    className="absolute inset-0 bg-accent-primary/15 rounded-full border border-accent-primary/30 shadow-glowSm"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
                 <span className="relative z-10">{link.name}</span>
@@ -110,15 +105,6 @@ export default function Navbar() {
 
         {/* Action Buttons Right */}
         <div className="hidden sm:flex items-center gap-3">
-          {/* Dark mode toggle */}
-          <button
-            onClick={toggleDarkMode}
-            className="p-2.5 rounded-full bg-bg-card/80 border border-white/10 text-text-body hover:text-accent-primary hover:border-accent-primary/40 transition-all"
-            aria-label="Toggle Theme"
-          >
-            {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </button>
-
           {/* Resume Download */}
           <a
             href="/resume.pdf"

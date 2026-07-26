@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink, Eye, Smartphone, Sparkles } from "lucide-react";
 import ProjectModal, { ProjectData } from "@/components/ui/ProjectModal";
 
@@ -135,32 +135,45 @@ export default function FeaturedProjects() {
 
         {/* Category Filters */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-14">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-xs font-medium transition-all duration-300 ${activeCategory === cat
-                ? "bg-accent-primary text-bg-primary font-bold shadow-glow"
-                : "bg-bg-card border border-white/10 text-text-body hover:text-white hover:border-accent-primary/40"
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`relative px-5 py-2 rounded-full text-xs font-medium transition-colors duration-300 ${
+                  isActive
+                    ? "text-bg-primary font-bold"
+                    : "bg-bg-card border border-white/10 text-text-body hover:text-white hover:border-accent-primary/40"
                 }`}
-            >
-              {cat}
-            </button>
-          ))}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="projectCategoryTab"
+                    className="absolute inset-0 bg-accent-primary rounded-full shadow-glow"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{cat}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Projects Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, idx) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              onClick={() => setSelectedProject(project)}
-              className="group glass-card rounded-[24px] overflow-hidden border border-white/10 flex flex-col justify-between hover:border-accent-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow cursor-pointer"
-            >
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, idx) => (
+              <motion.div
+                layout
+                key={project.id}
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                onClick={() => setSelectedProject(project)}
+                className="group glass-card rounded-[24px] overflow-hidden border border-white/10 flex flex-col justify-between hover:border-accent-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow cursor-pointer"
+              >
               {/* Phone Mockup Screen Header */}
               <div className="relative w-full h-[280px] bg-bg-primary overflow-hidden flex items-center justify-center p-4">
                 <div className="relative w-full h-full rounded-xl overflow-hidden">
@@ -271,7 +284,8 @@ export default function FeaturedProjects() {
               </div>
             </motion.div>
           ))}
-        </div>
+          </AnimatePresence>
+        </motion.div>
 
       </div>
 

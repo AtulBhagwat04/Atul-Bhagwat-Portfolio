@@ -14,6 +14,26 @@ import {
   Server,
 } from "lucide-react";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1.0] },
+  },
+};
+
 export default function Hero() {
   return (
     <section
@@ -28,13 +48,13 @@ export default function Hero() {
 
           {/* Left Column Content */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
             className="lg:col-span-7 flex flex-col gap-6"
           >
             {/* Small Status Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 w-fit">
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 w-fit backdrop-blur-md">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-primary"></span>
@@ -42,21 +62,21 @@ export default function Hero() {
               <span className="text-xs font-semibold text-accent-primary tracking-wide uppercase">
                 Available for Freelance & Full-time Roles
               </span>
-            </div>
+            </motion.div>
 
             {/* Main Hero Headline */}
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-extrabold text-white tracking-tight leading-[1.15] lg:leading-[1.2]">
+            <motion.h1 variants={itemVariants} className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-extrabold text-white tracking-tight leading-[1.15] lg:leading-[1.2]">
               Developing Scalable <br className="hidden md:block" />
               <span className="text-accent-gradient">Full-Stack & Mobile</span> Applications.
-            </h1>
+            </motion.h1>
 
             {/* Description */}
-            <p className="text-text-body text-base md:text-lg max-w-2xl leading-relaxed">
+            <motion.p variants={itemVariants} className="text-text-body text-base md:text-lg max-w-2xl leading-relaxed">
               Hi, I&apos;m <span className="text-white font-semibold">Atul Bhagwat</span>. Mobile Application Developer specializing in high-performance <span className="text-white font-semibold">Flutter (iOS & Android)</span> apps paired with robust <span className="text-white font-semibold">Node.js</span> backends.
-            </p>
+            </motion.p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#projects"
                 className="px-7 py-3.5 rounded-full bg-gradient-accent text-bg-primary font-bold text-sm hover:shadow-glow transition-all duration-300 flex items-center gap-2 group hover:scale-[1.03] active:scale-[0.97]"
@@ -76,15 +96,15 @@ export default function Hero() {
 
               <a
                 href="#contact"
-                className="px-7 py-3.5 rounded-full bg-transparent border border-accent-primary/40 text-accent-primary font-semibold text-sm hover:bg-accent-primary/10 transition-all duration-300 flex items-center gap-2"
+                className="px-7 py-3.5 rounded-full bg-transparent border border-accent-primary/40 text-accent-primary font-semibold text-sm hover:bg-accent-primary/10 transition-all duration-300 flex items-center gap-2 hover:scale-[1.02]"
               >
                 <Sparkles className="w-4 h-4" />
                 Hire Me
               </a>
-            </div>
+            </motion.div>
 
             {/* Social Icons & Quick Stats */}
-            <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-6">
+            <motion.div variants={itemVariants} className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-6">
               <div className="flex flex-col gap-1.5">
                 <span className="text-xs text-text-muted font-medium uppercase tracking-wider">
                   Connect With Me
@@ -94,7 +114,7 @@ export default function Hero() {
                     href="https://github.com/AtulBhagwat04"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-bg-card border border-white/10 flex items-center justify-center text-text-body hover:text-accent-primary hover:border-accent-primary/40 transition-all duration-300 hover:scale-110"
+                    className="w-10 h-10 rounded-full bg-bg-card border border-white/10 flex items-center justify-center text-text-body hover:text-accent-primary hover:border-accent-primary/40 transition-all duration-300 hover:scale-110 hover:shadow-glowSm"
                     aria-label="GitHub"
                   >
                     <Github className="w-4 h-4" />
@@ -103,14 +123,14 @@ export default function Hero() {
                     href="https://www.linkedin.com/in/atulbhagwat04"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-bg-card border border-white/10 flex items-center justify-center text-text-body hover:text-accent-primary hover:border-accent-primary/40 transition-all duration-300 hover:scale-110"
+                    className="w-10 h-10 rounded-full bg-bg-card border border-white/10 flex items-center justify-center text-text-body hover:text-accent-primary hover:border-accent-primary/40 transition-all duration-300 hover:scale-110 hover:shadow-glowSm"
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="w-4 h-4" />
                   </a>
                   <a
                     href="mailto:atulbhagwat12@gmail.com"
-                    className="w-10 h-10 rounded-full bg-bg-card border border-white/10 flex items-center justify-center text-text-body hover:text-accent-primary hover:border-accent-primary/40 transition-all duration-300 hover:scale-110"
+                    className="w-10 h-10 rounded-full bg-bg-card border border-white/10 flex items-center justify-center text-text-body hover:text-accent-primary hover:border-accent-primary/40 transition-all duration-300 hover:scale-110 hover:shadow-glowSm"
                     aria-label="Email"
                   >
                     <Mail className="w-4 h-4" />
@@ -119,20 +139,20 @@ export default function Hero() {
               </div>
 
               <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-text-body">
-                <div className="flex items-center gap-1.5 bg-bg-card/80 px-3 py-1.5 rounded-full border border-white/5">
+                <div className="flex items-center gap-1.5 bg-bg-card/80 px-3.5 py-1.5 rounded-full border border-white/5 hover:border-accent-primary/30 transition-colors">
                   <Smartphone className="w-4 h-4 text-accent-primary" />
                   <span>Flutter (iOS/Android)</span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-bg-card/80 px-3 py-1.5 rounded-full border border-white/5">
+                <div className="flex items-center gap-1.5 bg-bg-card/80 px-3.5 py-1.5 rounded-full border border-white/5 hover:border-accent-primary/30 transition-colors">
                   <Server className="w-4 h-4 text-accent-primary" />
                   <span>Node.js Backend</span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-bg-card/80 px-3 py-1.5 rounded-full border border-white/5">
+                <div className="flex items-center gap-1.5 bg-bg-card/80 px-3.5 py-1.5 rounded-full border border-white/5 hover:border-accent-primary/30 transition-colors">
                   <CheckCircle2 className="w-4 h-4 text-accent-primary" />
                   <span>Clean Architecture</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Right Column: Interactive Visuals & Developer Portrait */}
@@ -145,8 +165,12 @@ export default function Hero() {
             {/* Glowing Backdrop Aura */}
             <div className="absolute inset-0 bg-gradient-to-tr from-accent-primary/30 to-transparent rounded-full filter blur-3xl opacity-60 animate-pulse-slow" />
 
-            {/* Developer Portrait Image Container */}
-            <div className="relative w-full max-w-[380px] aspect-[4/5] rounded-[28px] overflow-hidden border border-white/15 bg-bg-card shadow-2xl group">
+            {/* Developer Portrait Image Container with floating loop */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="relative w-full max-w-[380px] aspect-[4/5] rounded-[28px] overflow-hidden border border-white/15 bg-bg-card shadow-2xl group hover:border-accent-primary/40 transition-colors"
+            >
               <Image
                 src="/images/developer_hero.png"
                 alt="Atul Bhagwat - Mobile App Developer"
@@ -159,11 +183,11 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-transparent to-transparent opacity-80" />
 
               {/* Corner Accent Glow */}
-              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-bg-primary/80 backdrop-blur-md border border-accent-primary/30 text-[11px] font-semibold text-accent-primary flex items-center gap-1.5">
+              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-bg-primary/80 backdrop-blur-md border border-accent-primary/30 text-[11px] font-semibold text-accent-primary flex items-center gap-1.5 shadow-glowSm">
                 <span className="w-2 h-2 rounded-full bg-accent-primary animate-ping" />
                 Application Developer
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
         </div>

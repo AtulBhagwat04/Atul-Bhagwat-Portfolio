@@ -81,8 +81,14 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
           {/* Left Column: Contact Cards & Direct Info */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="glass-card p-8 rounded-[28px] border border-white/10 flex flex-col gap-6">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 flex flex-col gap-6"
+          >
+            <div className="glass-card p-8 rounded-[28px] border border-white/10 flex flex-col gap-6 hover:border-accent-primary/30 transition-colors shadow-2xl">
               <h3 className="text-xl font-bold font-heading text-white">Direct Communication</h3>
               <p className="text-xs text-text-body leading-relaxed">
                 Reach out directly via email, phone, or schedule a quick video call. I usually respond within 2-4 hours.
@@ -130,10 +136,16 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Contact Form */}
-          <div className="lg:col-span-7">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-7"
+          >
             <div className="glass-card p-8 sm:p-10 rounded-[28px] border border-white/10 relative overflow-hidden">
               {submitSuccess ? (
                 <motion.div
@@ -234,7 +246,7 @@ export default function Contact() {
                 </form>
               )}
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
