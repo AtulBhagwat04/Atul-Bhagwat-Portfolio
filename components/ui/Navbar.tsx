@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
-import { Download, Send, Menu, X, Smartphone, Sparkles } from "lucide-react";
+import { Download, Send, Menu, X, Smartphone } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -118,9 +118,8 @@ export default function Navbar() {
           {/* Hire Me Button */}
           <a
             href="#contact"
-            className="px-5 py-2 text-xs font-semibold rounded-full bg-gradient-accent text-bg-primary hover:shadow-glow transition-all duration-300 flex items-center gap-1.5 hover:scale-[1.03] active:scale-[0.98]"
+            className="px-5 py-2 text-xs font-semibold rounded-full bg-gradient-accent text-bg-primary hover:shadow-glow transition-all duration-300 flex items-center justify-center hover:scale-[1.03] active:scale-[0.98]"
           >
-            <Sparkles className="w-3.5 h-3.5 fill-bg-primary" />
             Hire Me
           </a>
         </div>

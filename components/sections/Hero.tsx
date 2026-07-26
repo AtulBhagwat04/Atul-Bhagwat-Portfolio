@@ -1,20 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import {
-  ArrowRight,
   Download,
   Github,
   Linkedin,
   Mail,
   Smartphone,
   CheckCircle2,
-  Sparkles,
   Server,
 } from "lucide-react";
+import { heroData } from "@/data/hero";
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -25,12 +24,12 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 25 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1.0] },
+    transition: { duration: 0.6, ease: "easeOut" },
   },
 };
 
@@ -60,46 +59,39 @@ export default function Hero() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-primary"></span>
               </span>
               <span className="text-xs font-semibold text-accent-primary tracking-wide uppercase">
-                Available for Freelance & Full-time Roles
+                {heroData.statusBadge}
               </span>
             </motion.div>
 
             {/* Main Hero Headline */}
             <motion.h1 variants={itemVariants} className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-extrabold text-white tracking-tight leading-[1.15] lg:leading-[1.2]">
-              Developing Scalable <br className="hidden md:block" />
-              <span className="text-accent-gradient">Full-Stack & Mobile</span> Applications.
+              {heroData.titleLine1} <br className="hidden md:block" />
+              <span className="text-accent-gradient">{heroData.titleLine2}</span> {heroData.titleLine3}
             </motion.h1>
 
             {/* Description */}
             <motion.p variants={itemVariants} className="text-text-body text-base md:text-lg max-w-2xl leading-relaxed">
-              Hi, I&apos;m <span className="text-white font-semibold">Atul Bhagwat</span>. Mobile Application Developer specializing in high-performance <span className="text-white font-semibold">Flutter (iOS & Android)</span> apps paired with robust <span className="text-white font-semibold">Node.js</span> backends.
+              {heroData.bioPrefix}
+              <span className="text-white font-semibold">{heroData.name}</span>
+              {heroData.bioSuffix}
             </motion.p>
 
             {/* CTA Buttons */}
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#projects"
-                className="px-7 py-3.5 rounded-full bg-gradient-accent text-bg-primary font-bold text-sm hover:shadow-glow transition-all duration-300 flex items-center gap-2 group hover:scale-[1.03] active:scale-[0.97]"
+                className="px-7 py-3.5 rounded-full bg-gradient-accent text-bg-primary font-bold text-sm hover:shadow-glow transition-all duration-300 flex items-center justify-center group hover:scale-[1.03] active:scale-[0.97]"
               >
                 View Projects
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
 
               <a
-                href="/resume.pdf"
+                href={heroData.socialLinks.resume}
                 download
                 className="px-7 py-3.5 rounded-full bg-bg-card border border-white/10 text-white font-semibold text-sm hover:border-accent-primary/50 hover:text-accent-primary transition-all duration-300 flex items-center gap-2 group hover:bg-bg-cardHover"
               >
                 <Download className="w-4 h-4 text-accent-primary group-hover:translate-y-0.5 transition-transform" />
                 Download CV
-              </a>
-
-              <a
-                href="#contact"
-                className="px-7 py-3.5 rounded-full bg-transparent border border-accent-primary/40 text-accent-primary font-semibold text-sm hover:bg-accent-primary/10 transition-all duration-300 flex items-center gap-2 hover:scale-[1.02]"
-              >
-                <Sparkles className="w-4 h-4" />
-                Hire Me
               </a>
             </motion.div>
 
@@ -111,7 +103,7 @@ export default function Hero() {
                 </span>
                 <div className="flex items-center gap-3">
                   <a
-                    href="https://github.com/AtulBhagwat04"
+                    href={heroData.socialLinks.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-bg-card border border-white/10 flex items-center justify-center text-text-body hover:text-accent-primary hover:border-accent-primary/40 transition-all duration-300 hover:scale-110 hover:shadow-glowSm"
@@ -120,7 +112,7 @@ export default function Hero() {
                     <Github className="w-4 h-4" />
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/atulbhagwat04"
+                    href={heroData.socialLinks.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-bg-card border border-white/10 flex items-center justify-center text-text-body hover:text-accent-primary hover:border-accent-primary/40 transition-all duration-300 hover:scale-110 hover:shadow-glowSm"
@@ -129,7 +121,7 @@ export default function Hero() {
                     <Linkedin className="w-4 h-4" />
                   </a>
                   <a
-                    href="mailto:atulbhagwat12@gmail.com"
+                    href={heroData.socialLinks.email}
                     className="w-10 h-10 rounded-full bg-bg-card border border-white/10 flex items-center justify-center text-text-body hover:text-accent-primary hover:border-accent-primary/40 transition-all duration-300 hover:scale-110 hover:shadow-glowSm"
                     aria-label="Email"
                   >
@@ -139,23 +131,22 @@ export default function Hero() {
               </div>
 
               <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-text-body">
-                <div className="flex items-center gap-1.5 bg-bg-card/80 px-3.5 py-1.5 rounded-full border border-white/5 hover:border-accent-primary/30 transition-colors">
-                  <Smartphone className="w-4 h-4 text-accent-primary" />
-                  <span>Flutter (iOS/Android)</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-bg-card/80 px-3.5 py-1.5 rounded-full border border-white/5 hover:border-accent-primary/30 transition-colors">
-                  <Server className="w-4 h-4 text-accent-primary" />
-                  <span>Node.js Backend</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-bg-card/80 px-3.5 py-1.5 rounded-full border border-white/5 hover:border-accent-primary/30 transition-colors">
-                  <CheckCircle2 className="w-4 h-4 text-accent-primary" />
-                  <span>Clean Architecture</span>
-                </div>
+                {heroData.techHighlights.map((tech) => (
+                  <div
+                    key={tech.label}
+                    className="flex items-center gap-1.5 bg-bg-card/80 px-3.5 py-1.5 rounded-full border border-white/5 hover:border-accent-primary/30 transition-colors"
+                  >
+                    {tech.type === "mobile" && <Smartphone className="w-4 h-4 text-accent-primary" />}
+                    {tech.type === "backend" && <Server className="w-4 h-4 text-accent-primary" />}
+                    {tech.type === "architecture" && <CheckCircle2 className="w-4 h-4 text-accent-primary" />}
+                    <span>{tech.label}</span>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Interactive Visuals & Developer Portrait */}
+          {/* Right Column: Developer Portrait */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -165,14 +156,14 @@ export default function Hero() {
             {/* Glowing Backdrop Aura */}
             <div className="absolute inset-0 bg-gradient-to-tr from-accent-primary/30 to-transparent rounded-full filter blur-3xl opacity-60 animate-pulse-slow" />
 
-            {/* Developer Portrait Image Container with floating loop */}
+            {/* Developer Portrait Container */}
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               className="relative w-full max-w-[380px] aspect-[4/5] rounded-[28px] overflow-hidden border border-white/15 bg-bg-card shadow-2xl group hover:border-accent-primary/40 transition-colors"
             >
               <Image
-                src="/images/developer_hero.png"
+                src={heroData.developerPortrait}
                 alt="Atul Bhagwat - Mobile App Developer"
                 fill
                 priority

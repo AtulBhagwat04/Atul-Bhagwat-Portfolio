@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
 import { Send, Mail, Phone, MapPin, CheckCircle2, Loader2 } from "lucide-react";
+import { contactData } from "@/data/contact";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -68,19 +69,19 @@ export default function Contact() {
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-3 mb-16">
           <span className="px-4 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary text-xs font-bold uppercase tracking-wider">
-            Let&apos;s Connect
+            {contactData.headerBadge}
           </span>
           <h2 className="font-heading section-title font-extrabold text-white">
-            Have A Project In Mind? <span className="text-accent-gradient">Let&apos;s Talk!</span>
+            {contactData.titlePrefix}<span className="text-accent-gradient">{contactData.titleGradient}</span>
           </h2>
           <p className="text-text-body text-base max-w-2xl">
-            Whether you need a new mobile app from scratch, a Flutter expert for your team, or a technical consultation, I am here to help.
+            {contactData.description}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-          {/* Left Column: Contact Cards & Direct Info */}
+          {/* Left Column: Contact Cards */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -96,7 +97,7 @@ export default function Contact() {
 
               <div className="space-y-4">
                 <a
-                  href="mailto:atulbhagwat12@gmail.com"
+                  href={`mailto:${contactData.email}`}
                   className="flex items-center gap-4 p-4 rounded-2xl bg-bg-primary/80 border border-white/5 hover:border-accent-primary/40 transition-colors group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-accent-primary/10 border border-accent-primary/30 flex items-center justify-center text-accent-primary group-hover:scale-110 transition-transform">
@@ -105,13 +106,13 @@ export default function Contact() {
                   <div>
                     <span className="text-[11px] text-text-muted font-medium uppercase">Email Me</span>
                     <p className="text-sm font-bold text-white group-hover:text-accent-primary transition-colors">
-                      atulbhagwat12@gmail.com
+                      {contactData.email}
                     </p>
                   </div>
                 </a>
 
                 <a
-                  href="tel:+919881069874"
+                  href={`tel:${contactData.rawPhone}`}
                   className="flex items-center gap-4 p-4 rounded-2xl bg-bg-primary/80 border border-white/5 hover:border-accent-primary/40 transition-colors group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-accent-primary/10 border border-accent-primary/30 flex items-center justify-center text-accent-primary group-hover:scale-110 transition-transform">
@@ -120,7 +121,7 @@ export default function Contact() {
                   <div>
                     <span className="text-[11px] text-text-muted font-medium uppercase">Call / WhatsApp</span>
                     <p className="text-sm font-bold text-white group-hover:text-accent-primary transition-colors">
-                      +91 98810 69874
+                      {contactData.phone}
                     </p>
                   </div>
                 </a>
@@ -131,7 +132,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className="text-[11px] text-text-muted font-medium uppercase">Location</span>
-                    <p className="text-sm font-bold text-white">India • Remote Worldwide</p>
+                    <p className="text-sm font-bold text-white">{contactData.location}</p>
                   </div>
                 </div>
               </div>
