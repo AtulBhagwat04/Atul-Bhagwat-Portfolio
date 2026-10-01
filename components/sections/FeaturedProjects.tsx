@@ -17,19 +17,21 @@ export default function FeaturedProjects() {
       : projectsData.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-24 relative bg-bg-secondary/40">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-8">
+    <section id="projects" className="py-24 relative bg-bg-primary overflow-hidden">
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-accent-primary/5 rounded-full blur-[130px] pointer-events-none" />
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-8 relative z-10">
 
         {/* Header */}
-        <div className="flex flex-col items-center text-center gap-3 mb-12">
-          <span className="px-4 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary text-xs font-bold uppercase tracking-wider">
+        <div className="flex flex-col items-center text-center gap-4 mb-12">
+          <span className="px-4 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/25 text-accent-primary text-[11px] font-bold uppercase tracking-widest shadow-glowSm">
             Portfolio Showcase
           </span>
           <h2 className="font-heading section-title font-extrabold text-white">
             Featured <span className="text-accent-gradient">Projects</span>
           </h2>
-          <p className="text-text-body text-base max-w-2xl">
-            Explore production-grade iOS and Android mobile apps engineered with Flutter, clean architecture, and modern backend integrations.
+          <div className="w-16 h-0.5 bg-gradient-accent rounded-full" />
+          <p className="text-text-body text-base max-w-xl leading-relaxed">
+            Production-grade iOS and Android apps built with Flutter, clean architecture and modern backend integrations.
           </p>
         </div>
 
@@ -72,10 +74,10 @@ export default function FeaturedProjects() {
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 onClick={() => setSelectedProject(project)}
-                className="group glass-card rounded-[24px] overflow-hidden border border-white/10 flex flex-col justify-between hover:border-accent-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow cursor-pointer"
+                className="group glass-card rounded-[24px] overflow-hidden border border-white/8 flex flex-col hover:border-accent-primary/45 transition-all duration-500 hover:-translate-y-2.5 hover:shadow-glow cursor-pointer"
               >
                 {/* Phone Mockup Screen Header */}
-                <div className="relative w-full h-[280px] bg-bg-primary overflow-hidden flex items-center justify-center p-4">
+                <div className="relative w-full h-[260px] bg-bg-card/50 overflow-hidden flex items-center justify-center p-3">
                   <div className="relative w-full h-full rounded-xl overflow-hidden">
                     <Image
                       src={project.image}

@@ -68,10 +68,10 @@ export default function TechStack() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3, delay: idx * 0.03 }}
-                className="group glass-card p-5 rounded-2xl border border-white/10 flex flex-col items-center text-center hover:border-accent-primary/50 hover:bg-bg-cardHover hover:-translate-y-1 transition-all duration-300 h-full justify-between"
+                className="group glass-card p-5 rounded-2xl border border-white/8 flex flex-col items-center text-center hover:border-accent-primary/45 hover:bg-bg-cardHover hover:-translate-y-1.5 transition-all duration-350 h-full justify-between"
               >
                 <div className="w-full flex flex-col items-center text-center">
-                  <div className="w-12 h-12 rounded-xl bg-accent-primary/10 border border-accent-primary/30 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-accent-primary/20 transition-all shrink-0">
+                  <div className="w-14 h-14 rounded-2xl bg-accent-primary/10 border border-accent-primary/25 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-accent-primary/20 group-hover:shadow-glowSm transition-all shrink-0">
                     {item.icon}
                   </div>
                   <h3 className="text-sm font-bold text-white group-hover:text-accent-primary transition-colors mb-1 font-heading">

@@ -20,19 +20,23 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-24 relative bg-bg-secondary/40">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-8">
+    <section id="about" className="py-24 relative bg-bg-secondary/30 overflow-hidden">
+      {/* Ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-primary/5 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-8 relative z-10">
 
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center gap-3 mb-16">
-          <span className="px-4 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary text-xs font-bold uppercase tracking-wider">
+        <div className="flex flex-col items-center text-center gap-4 mb-16">
+          <span className="px-4 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/25 text-accent-primary text-[11px] font-bold uppercase tracking-widest shadow-glowSm">
             About Me
           </span>
           <h2 className="font-heading section-title font-extrabold text-white">
-            Full-Stack <span className="text-accent-gradient">Developer</span>
+            The Developer <span className="text-accent-gradient">Behind the Code</span>
           </h2>
-          <p className="text-text-body text-base max-w-2xl">
-            Focused on building scalable mobile applications and robust backend systems.
+          <div className="w-16 h-0.5 bg-gradient-accent rounded-full" />
+          <p className="text-text-body text-base max-w-xl leading-relaxed">
+            Focused on crafting scalable mobile applications and high-performance backend systems.
           </p>
         </div>
 
@@ -48,7 +52,7 @@ export default function About() {
             className="lg:col-span-4 lg:sticky lg:top-28 space-y-6"
           >
             {/* Image Container */}
-            <div className="relative aspect-square max-w-[340px] mx-auto lg:mx-0 rounded-3xl overflow-hidden glass-card p-2 border border-white/10 shadow-2xl">
+            <div className="relative aspect-square max-w-[340px] mx-auto lg:mx-0 rounded-3xl overflow-hidden glass-card p-2 border border-white/10 shadow-glowLg hover:border-accent-primary/30 transition-all duration-500">
               <div className="relative w-full h-full rounded-2xl overflow-hidden">
                 <Image
                   src={profileDetails.avatar}
@@ -65,7 +69,7 @@ export default function About() {
             </div>
 
             {/* Quick Profile facts */}
-            <div className="max-w-[340px] mx-auto lg:mx-0 p-6 rounded-3xl bg-bg-card/30 backdrop-blur-md border border-white/5 hover:border-accent-primary/20 transition-all duration-300 space-y-4 shadow-xl">
+            <div className="max-w-[340px] mx-auto lg:mx-0 p-6 rounded-3xl glass-card border border-white/8 hover:border-accent-primary/25 transition-all duration-400 space-y-4">
               <h4 className="text-xs font-bold text-white uppercase tracking-wider font-heading border-b border-white/10 pb-2">
                 Quick Profile
               </h4>
@@ -98,14 +102,14 @@ export default function About() {
             className="lg:col-span-8 space-y-6"
           >
             {/* Biography Narrative */}
-            <div className="space-y-4 text-text-body text-base leading-relaxed bg-bg-card/30 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/5 hover:border-accent-primary/20 transition-all duration-300 shadow-xl">
+            <div className="space-y-5 text-text-body text-[15px] leading-[1.8] glass-card p-6 sm:p-8 rounded-3xl border border-white/8 hover:border-accent-primary/20 transition-all duration-400">
               <p>{profileDetails.bioParagraph1}</p>
               <p>{profileDetails.bioParagraph2}</p>
             </div>
 
             {/* Education Timeline */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-bg-card/30 backdrop-blur-md border border-white/5 hover:border-accent-primary/20 transition-all duration-300 space-y-5 shadow-xl">
-              <h3 className="text-base font-bold text-white font-heading flex items-center gap-2 border-b border-white/5 pb-3">
+            <div className="p-6 sm:p-8 rounded-3xl glass-card border border-white/8 hover:border-accent-primary/20 transition-all duration-400 space-y-5">
+              <h3 className="text-base font-bold text-white font-heading flex items-center gap-2 border-b border-white/8 pb-3">
                 <GraduationCap className="w-5 h-5 text-accent-primary" />
                 Education
               </h3>

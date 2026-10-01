@@ -9,19 +9,21 @@ export default function Experience() {
   const [activeTab, setActiveTab] = useState<"experience" | "leadership" | "achievements">("experience");
 
   return (
-    <section id="experience" className="py-24 relative bg-bg-primary">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-8">
+    <section id="experience" className="py-24 relative bg-bg-primary overflow-hidden">
+      <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-accent-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-8 relative z-10">
         
         {/* Header */}
-        <div className="flex flex-col items-center text-center gap-3 mb-12">
-          <span className="px-4 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary text-xs font-bold uppercase tracking-wider">
+        <div className="flex flex-col items-center text-center gap-4 mb-12">
+          <span className="px-4 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/25 text-accent-primary text-[11px] font-bold uppercase tracking-widest shadow-glowSm">
             My Credentials
           </span>
           <h2 className="font-heading section-title font-extrabold text-white">
-            Experience & <span className="text-accent-gradient">Achievements</span>
+            Experience &amp; <span className="text-accent-gradient">Achievements</span>
           </h2>
-          <p className="text-text-body text-base max-w-2xl">
-            An organized log of my professional experiences, leadership roles, and technical achievements.
+          <div className="w-16 h-0.5 bg-gradient-accent rounded-full" />
+          <p className="text-text-body text-base max-w-xl leading-relaxed">
+            My professional experiences, leadership roles, and technical achievements.
           </p>
         </div>
 
@@ -68,7 +70,7 @@ export default function Experience() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="glass-card p-6 rounded-[22px] border border-white/10 hover:border-accent-primary/40 transition-all duration-300 group hover:-translate-y-1 shadow-xl"
+                className="glass-card p-6 rounded-[22px] border border-white/8 hover:border-accent-primary/40 transition-all duration-400 group hover:-translate-y-1.5 relative overflow-hidden"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
                   <div>

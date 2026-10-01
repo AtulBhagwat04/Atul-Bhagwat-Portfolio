@@ -63,18 +63,20 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-bg-primary">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-8">
+    <section id="contact" className="py-24 relative bg-bg-secondary/30 overflow-hidden">
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent-primary/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-8 relative z-10">
 
         {/* Header */}
-        <div className="flex flex-col items-center text-center gap-3 mb-16">
-          <span className="px-4 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary text-xs font-bold uppercase tracking-wider">
+        <div className="flex flex-col items-center text-center gap-4 mb-16">
+          <span className="px-4 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/25 text-accent-primary text-[11px] font-bold uppercase tracking-widest shadow-glowSm">
             {contactData.headerBadge}
           </span>
           <h2 className="font-heading section-title font-extrabold text-white">
             {contactData.titlePrefix}<span className="text-accent-gradient">{contactData.titleGradient}</span>
           </h2>
-          <p className="text-text-body text-base max-w-2xl">
+          <div className="w-16 h-0.5 bg-gradient-accent rounded-full" />
+          <p className="text-text-body text-base max-w-xl leading-relaxed">
             {contactData.description}
           </p>
         </div>
@@ -171,7 +173,7 @@ export default function Contact() {
                       <input
                         {...register("name")}
                         placeholder="Enter Your Name"
-                        className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-white/10 text-white placeholder-text-muted/50 focus:outline-none focus:border-accent-primary transition-colors text-sm"
+                        className="w-full px-4 py-3.5 rounded-xl bg-bg-primary border border-white/10 text-white placeholder-text-muted/50 focus:border-accent-primary/50 focus:shadow-[0_0_0_3px_rgba(52,245,138,0.08)] transition-all text-sm outline-none"
                       />
                       {errors.name && (
                         <span className="text-xs text-status-error">{errors.name.message}</span>
@@ -185,7 +187,7 @@ export default function Contact() {
                         {...register("email")}
                         type="email"
                         placeholder="Enter Your Email"
-                        className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-white/10 text-white placeholder-text-muted/50 focus:outline-none focus:border-accent-primary transition-colors text-sm"
+                        className="w-full px-4 py-3.5 rounded-xl bg-bg-primary border border-white/10 text-white placeholder-text-muted/50 focus:border-accent-primary/50 focus:shadow-[0_0_0_3px_rgba(52,245,138,0.08)] transition-all text-sm outline-none"
                       />
                       {errors.email && (
                         <span className="text-xs text-status-error">{errors.email.message}</span>
@@ -213,7 +215,7 @@ export default function Contact() {
                       {...register("message")}
                       rows={5}
                       placeholder="Tell me about your project goals, timeline, and tech requirements..."
-                      className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-white/10 text-white placeholder-text-muted/50 focus:outline-none focus:border-accent-primary transition-colors text-sm resize-none"
+                      className="w-full px-4 py-3.5 rounded-xl bg-bg-primary border border-white/10 text-white placeholder-text-muted/50 focus:border-accent-primary/50 focus:shadow-[0_0_0_3px_rgba(52,245,138,0.08)] transition-all text-sm resize-none outline-none"
                     />
                     {errors.message && (
                       <span className="text-xs text-status-error">{errors.message.message}</span>
