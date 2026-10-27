@@ -8,8 +8,12 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-bg-secondary border-t border-white/10 pt-16 pb-12 text-text-body relative">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-8">
+    <footer className="bg-bg-secondary/50 relative overflow-hidden pt-16 pb-12 text-text-body">
+      {/* Top gradient accent line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-primary/40 to-transparent" />
+      {/* Ambient glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-accent-primary/5 blur-[80px] pointer-events-none" />
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-8 relative z-10">
 
         {/* Top Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
@@ -17,8 +21,9 @@ export default function Footer() {
           {/* Brand Info Left */}
           <div className="md:col-span-5 flex flex-col gap-4">
             <a href="#home" className="flex items-center gap-3 w-fit">
-              <div className="w-10 h-10 rounded-full bg-accent-primary/10 border border-accent-primary/30 flex items-center justify-center text-accent-primary shadow-glowSm">
-                <Smartphone className="w-5 h-5 text-accent-primary" />
+              
+              <div className="w-10 h-10 rounded-full bg-accent-primary/10 border border-accent-primary/30 flex items-center justify-center text-accent-primary shadow-glowSm group-hover:scale-105 transition-transform">
+                <Smartphone className="w-5 h-5" />
               </div>
               <span className="font-heading text-xl font-bold text-white tracking-wide">
                 Atul Bhagwat
@@ -101,7 +106,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright & Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted">
+        <div className="pt-8 border-t border-white/6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted">
           <p>© {new Date().getFullYear()} Atul Bhagwat. All rights reserved.</p>
 
           <button

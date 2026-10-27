@@ -1,11 +1,12 @@
 export const heroData = {
   statusBadge: "Available for Freelance & Full-time Roles",
-  titleLine1: "Developing Scalable",
-  titleLine2: "Full-Stack & Mobile",
-  titleLine3: "Applications.",
+  titleLine1: "Building High-Performance",
+  titleLine2: "Mobile Applications",
+  titleLine3: "For iOS & Android",
   name: "Atul Bhagwat",
   bioPrefix: "Hi, I'm ",
-  bioSuffix: ". Mobile Application Developer specializing in high-performance Flutter (iOS & Android) apps paired with robust Node.js backends.",
+  bioSuffix:
+    ". A Mobile Application Developer passionate about building high-performance, pixel-perfect apps across iOS & Android — from concept to the App Store.",
   developerPortrait: "/images/developer_hero.png",
   socialLinks: {
     github: "https://github.com/AtulBhagwat04",
@@ -13,9 +14,16 @@ export const heroData = {
     email: "mailto:atulbhagwat12@gmail.com",
     resume: "/resume.pdf",
   },
+  platforms: [
+    { label: "iOS", icon: "apple" },
+    { label: "Android", icon: "android" },
+    { label: "Cross-Platform", icon: "layers" },
+  ],
   techHighlights: [
-    { label: "Flutter (iOS/Android)", type: "mobile" },
-    { label: "Node.js Backend", type: "backend" },
+    { label: "Flutter", type: "mobile" },
+    { label: "React Native", type: "mobile" },
+    { label: "Node.js", type: "backend" },
+    { label: "Firebase", type: "backend" },
     { label: "Clean Architecture", type: "architecture" },
   ],
 };

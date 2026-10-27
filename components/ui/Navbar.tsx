@@ -61,7 +61,7 @@ export default function Navbar() {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-4"
     >
-      <div className="max-w-[1320px] mx-auto glass-nav rounded-full px-6 py-3 flex items-center justify-between border border-white/10 shadow-2xl transition-all duration-300">
+      <div className="max-w-[1320px] mx-auto glass-nav rounded-full px-5 py-2.5 flex items-center justify-between border border-white/8 shadow-[0_4px_24px_rgba(0,0,0,0.5)] transition-all duration-300">
         {/* Logo Left */}
         <a href="#home" className="flex items-center gap-3 group">
           <div className="w-10 h-10 rounded-full bg-accent-primary/10 border border-accent-primary/30 flex items-center justify-center text-accent-primary group-hover:scale-105 transition-transform duration-300 shadow-glowSm">
@@ -72,23 +72,21 @@ export default function Navbar() {
               Atul Bhagwat
             </span>
             <span className="text-[11px] text-text-muted font-medium flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-accent-primary animate-pulse" />
               Mobile App Developer
             </span>
           </div>
         </a>
 
         {/* Center Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1 bg-bg-card/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/5">
+        <nav className="hidden lg:flex items-center gap-0.5 bg-bg-card/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/5">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
               <a
                 key={link.name}
                 href={link.href}
-                className={`relative px-4 py-1.5 text-sm font-medium transition-colors duration-300 rounded-full ${
-                  isActive ? "text-accent-primary font-semibold" : "text-text-body hover:text-white"
-                }`}
+                className={`relative px-4 py-1.5 text-sm font-medium transition-all duration-300 rounded-full ${isActive ? "text-accent-primary font-semibold" : "text-text-body hover:text-white"
+                  }`}
               >
                 {isActive && (
                   <motion.span
@@ -118,7 +116,7 @@ export default function Navbar() {
           {/* Hire Me Button */}
           <a
             href="#contact"
-            className="px-5 py-2 text-xs font-semibold rounded-full bg-gradient-accent text-bg-primary hover:shadow-glow transition-all duration-300 flex items-center justify-center hover:scale-[1.03] active:scale-[0.98]"
+            className="px-5 py-2 text-xs font-bold rounded-full bg-gradient-accent text-bg-primary hover:shadow-glow hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 flex items-center justify-center"
           >
             Hire Me
           </a>

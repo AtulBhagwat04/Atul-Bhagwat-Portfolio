@@ -201,7 +201,7 @@ export default function Contact() {
                     <input
                       {...register("subject")}
                       placeholder="Mobile App Project inquiry"
-                      className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-white/10 text-white placeholder-text-muted/50 focus:outline-none focus:border-accent-primary transition-colors text-sm"
+                      className="w-full px-4 py-3.5 rounded-xl bg-bg-primary border border-white/10 text-white placeholder-text-muted/50 focus:border-accent-primary/50 focus:shadow-[0_0_0_3px_rgba(52,245,138,0.08)] transition-all text-sm outline-none"
                     />
                     {errors.subject && (
                       <span className="text-xs text-status-error">{errors.subject.message}</span>
